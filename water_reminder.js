@@ -17,8 +17,15 @@ end_time.setHours(20,0,0)
 let Int=setInterval(()=>{
     let current_time=new Date();
     let current_hour=current_time.getHours();
+
+    if (current_hour >=end_time.getHours()  && current_hour<start_time.getHours()) {
+        clearInterval(Int);
+        console.log("Stopped water reminder after 8 PM.");
+        return;
+    }
     
     if (current_hour >=start_time.getHours() && current_hour < end_time.getHours()){
+        
         
         alert("Time to drink water!")
         console.log("Drink Water");
